@@ -2,90 +2,1052 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+
+    <title>Afsar Sohail | DevOps Engineer</title>
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8ff;
+            color: #111827;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
 
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            z-index: 1000;
         }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        nav ul li a {
-            color: #fff;
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
             text-decoration: none;
+            color: #111827;
         }
 
-        main {
+        .logo span {
+            color: #6d5dfc;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #111827;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #6d5dfc;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 7% 80px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 30%,
+                    rgba(108, 92, 231, 0.22),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(0, 196, 255, 0.20),
+                    transparent 35%
+                ),
+                #f8f9ff;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: #7567ff;
+            filter: blur(140px);
+            opacity: 0.15;
+            top: 100px;
+            right: 100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            max-width: 760px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hello {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: rgba(108, 92, 231, 0.10);
+            border: 1px solid rgba(108, 92, 231, 0.20);
+            color: #5b55e8;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 8vw, 95px);
+            line-height: 0.95;
+            font-weight: 850;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #6257e8,
+                #8055e9,
+                #159bd7
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #625ce8;
+            margin-bottom: 22px;
+        }
+
+        .hero-description {
+            max-width: 700px;
+            font-size: 19px;
+            line-height: 1.8;
+            color: #64748b;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .primary-btn {
+            color: white;
+            background: linear-gradient(
+                90deg,
+                #7357ef,
+                #159bd7
+            );
+            box-shadow: 0 10px 30px rgba(104, 88, 238, 0.25);
+        }
+
+        .secondary-btn {
+            background: white;
+            color: #111827;
+            border: 1px solid #e5e7eb;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        /* ================= TERMINAL CARD ================= */
+
+        .terminal {
+            position: absolute;
+            right: 7%;
+            width: 360px;
+            background: #111827;
+            border-radius: 18px;
             padding: 20px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.20);
+            animation: float 5s ease-in-out infinite;
         }
 
-        section {
+        .terminal-top {
+            display: flex;
+            gap: 7px;
             margin-bottom: 20px;
         }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #64748b;
         }
-    </style>    
+
+        .terminal-code {
+            font-family: Consolas, monospace;
+            color: #d1d5db;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .terminal-code .green {
+            color: #4ade80;
+        }
+
+        .terminal-code .blue {
+            color: #60a5fa;
+        }
+
+        .terminal-code .purple {
+            color: #c084fc;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            max-width: 650px;
+            margin: 0 auto 50px;
+            line-height: 1.7;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: white;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .about-card {
+            padding: 35px;
+            border-radius: 22px;
+            background: #f8f9ff;
+            border: 1px solid #e7e9f4;
+            transition: 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 50px rgba(79, 70, 229, 0.10);
+        }
+
+        .about-card h3 {
+            margin-bottom: 18px;
+            font-size: 23px;
+        }
+
+        .about-card p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* ================= EDUCATION ================= */
+
+        .education {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7f5ff,
+                    #eef9ff
+                );
+        }
+
+        .education-card {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+            background: white;
+            border-radius: 25px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        .education-card h3 {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .education-card .university {
+            color: #6559e8;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .education-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .education-item {
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 15px;
+        }
+
+        .education-item span {
+            display: block;
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+
+        .education-item strong {
+            font-size: 16px;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills {
+            background: white;
+        }
+
+        .skills-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 28px;
+            border-radius: 20px;
+            background: #f8f9ff;
+            border: 1px solid #e7e9f4;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: #8b7ff0;
+            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.12);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 18px;
+            color: #5d55df;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .skill {
+            padding: 8px 12px;
+            border-radius: 10px;
+            background: white;
+            border: 1px solid #e2e5f0;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ================= DEVOPS JOURNEY ================= */
+
+        .journey {
+            background: #111827;
+            color: white;
+        }
+
+        .journey .section-title {
+            color: white;
+        }
+
+        .journey .section-subtitle {
+            color: #9ca3af;
+        }
+
+        .journey-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .journey-item {
+            padding: 18px 24px;
+            border-radius: 15px;
+            background: #1f2937;
+            border: 1px solid #374151;
+            color: #dbeafe;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .journey-item:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(
+                90deg,
+                #5f55e8,
+                #168ed0
+            );
+        }
+
+        .arrow {
+            color: #7c72e9;
+            font-size: 25px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background:
+                radial-gradient(
+                    circle at 50% 30%,
+                    rgba(110, 92, 231, 0.15),
+                    transparent 40%
+                ),
+                #f8f9ff;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .contact-box p {
+            color: #64748b;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social {
+            padding: 14px 24px;
+            border-radius: 12px;
+            background: white;
+            color: #111827;
+            text-decoration: none;
+            font-weight: 700;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .social:hover {
+            color: white;
+            background: linear-gradient(
+                90deg,
+                #6d5ce7,
+                #159bd7
+            );
+            transform: translateY(-4px);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #111827;
+            color: #9ca3af;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+
+            .terminal {
+                display: none;
+            }
+
+            .hero-content {
+                max-width: 850px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 130px 6% 70px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+                letter-spacing: -2px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 75px 6%;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .about-container,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-info {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-container {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="home">Home</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="contact">Contact</a></li>
-                <li><a href="courses">Courses</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section>
-            <h1>Learn DevOps from Basics</h1>
-            <p>The main purpose of this website is to guide people on how to learn DevOps 
-                from basics for Free. We will provide you with the best resources to learn.
+<!-- ================= NAVBAR ================= -->
+
+<header>
+
+    <a href="#home" class="logo">
+        Afsar<span>.</span>
+    </a>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="hello">
+            HELLO, I'M
+        </span>
+
+        <h1>
+            Afsar
+            <span class="gradient-text">
+                Sohail
+            </span>
+        </h1>
+
+        <h2>
+            DevOps Engineer
+        </h2>
+
+        <p class="hero-description">
+            I am a Computer Science & Engineering student passionate about
+            DevOps, cloud infrastructure, automation, and modern deployment
+            practices. I enjoy containerizing applications, working with
+            Kubernetes, building CI/CD workflows, and exploring cloud-native
+            technologies.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#contact" class="btn primary-btn">
+                Let's Connect →
+            </a>
+
+            <a href="#skills" class="btn secondary-btn">
+                Explore Skills
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Terminal -->
+
+    <div class="terminal">
+
+        <div class="terminal-top">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <div class="terminal-code">
+
+            <div>
+                <span class="green">$</span>
+                whoami
+            </div>
+
+            <div>
+                <span class="blue">afsars@devops</span>
+            </div>
+
+            <br>
+
+            <div>
+                <span class="green">$</span>
+                kubectl get skills
+            </div>
+
+            <div>
+                <span class="purple">Docker</span>
+            </div>
+
+            <div>
+                <span class="purple">Kubernetes</span>
+            </div>
+
+            <div>
+                <span class="purple">AWS / EKS</span>
+            </div>
+
+            <div>
+                <span class="purple">Helm</span>
+            </div>
+
+            <div>
+                <span class="purple">Argo CD</span>
+            </div>
+
+            <br>
+
+            <div>
+                <span class="green">$</span>
+                status
+            </div>
+
+            <div>
+                <span class="green">Learning & Building...</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <h2 class="section-title">
+        About Me
+    </h2>
+
+    <p class="section-subtitle">
+        A little about my background and what I enjoy working with.
+    </p>
+
+    <div class="about-container">
+
+        <div class="about-card">
+
+            <h3>Who I Am</h3>
+
+            <p>
+                I am a fourth-year Computer Science & Engineering student
+                focused on building a strong foundation in DevOps and cloud
+                technologies. I enjoy understanding how applications move
+                from development to production and how automation can make
+                that process reliable and repeatable.
             </p>
-        </section>
 
-        <section>
-            <h2>Overview</h2>
-            <p> Zero to Hero courses on all DevOps tools and popular Cloud(AWS and Azure) platform</p>
-        </section>
+        </div>
 
-        <section>
-            <h2>Courses Offered</h2>
-            <p>Please look at the <a href="courses">courses</a> section.</p>  
-        </section>
-    </main>
 
-    <footer>
-        <p>&copy; Abhishek.Veeramalla</p>
-    </footer>
+        <div class="about-card">
+
+            <h3>What I Work With</h3>
+
+            <p>
+                My learning journey includes Docker, Kubernetes, AWS, EKS,
+                Helm, Git, CI/CD, Terraform and Argo CD. I particularly enjoy
+                containerizing applications, designing Kubernetes deployments,
+                automating workflows and exploring cloud-native infrastructure.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section class="education" id="education">
+
+    <h2 class="section-title">
+        Education
+    </h2>
+
+    <p class="section-subtitle">
+        My academic background.
+    </p>
+
+    <div class="education-card">
+
+        <h3>
+            B.Tech — Computer Science & Engineering
+        </h3>
+
+        <div class="university">
+            Delhi Technical Campus · GGSIPU
+        </div>
+
+        <div class="education-info">
+
+            <div class="education-item">
+                <span>Branch</span>
+                <strong>Computer Science & Engineering</strong>
+            </div>
+
+            <div class="education-item">
+                <span>Current Year</span>
+                <strong>4th Year</strong>
+            </div>
+
+            <div class="education-item">
+                <span>CGPA</span>
+                <strong>8.8</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section class="skills" id="skills">
+
+    <h2 class="section-title">
+        Technical Skills
+    </h2>
+
+    <p class="section-subtitle">
+        Technologies and tools I am learning and working with.
+    </p>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+
+            <h3>Programming</h3>
+
+            <div class="skill-list">
+                <span class="skill">Java</span>
+                <span class="skill">Python</span>
+                <span class="skill">JavaScript</span>
+               
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>Web & Backend</h3>
+
+            <div class="skill-list">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+            
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>Databases</h3>
+
+            <div class="skill-list">
+                <span class="skill">MySQL</span>
+                <span class="skill">MongoDB</span>
+                
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>DevOps</h3>
+
+            <div class="skill-list">
+                <span class="skill">Git</span>
+                <span class="skill">GitHub</span>
+                <span class="skill">Docker</span>
+                <span class="skill">Kubernetes</span>
+                <span class="skill">Helm</span>
+                <span class="skill">Jenkins</span>
+                <span class="skill">Argo CD</span>
+                <span class="skill">Terraform</span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>Cloud</h3>
+
+            <div class="skill-list">
+                <span class="skill">AWS</span>
+                <span class="skill">EC2</span>
+                <span class="skill">S3</span>
+                <span class="skill">VPC</span>
+                <span class="skill">ECR</span>
+                <span class="skill">EKS</span>
+                <span class="skill">CloudFormation</span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>Tools</h3>
+
+            <div class="skill-list">
+                <span class="skill">Linux</span>
+                <span class="skill">kubectl</span>
+                <span class="skill">Minikube</span>
+                <span class="skill">GitHub Actions</span>
+                <span class="skill">VS Code</span>
+                <span class="skill">Docker Compose</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DEVOPS JOURNEY ================= -->
+
+<section class="journey" id="journey">
+
+    <h2 class="section-title">
+        DevOps Journey
+    </h2>
+
+    <p class="section-subtitle">
+        Continuously learning, experimenting and building with modern
+        DevOps and cloud-native technologies.
+    </p>
+
+    <div class="journey-container">
+
+        <div class="journey-item">
+            Linux
+        </div>
+
+        <span class="arrow">→</span>
+
+        <div class="journey-item">
+            Git & GitHub
+        </div>
+
+        <span class="arrow">→</span>
+
+        <div class="journey-item">
+            Docker
+        </div>
+
+        <span class="arrow">→</span>
+
+        <div class="journey-item">
+            Kubernetes
+        </div>
+
+        <span class="arrow">→</span>
+
+        <div class="journey-item">
+            AWS / EKS
+        </div>
+
+        <span class="arrow">→</span>
+
+        <div class="journey-item">
+            Helm
+        </div>
+
+        <span class="arrow">→</span>
+
+        <div class="journey-item">
+            Argo CD
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-box">
+
+        <h2 class="section-title">
+            Let's Connect
+        </h2>
+
+        <p>
+            I am always interested in learning, building and connecting with
+            people interested in DevOps, cloud computing and technology.
+        </p>
+
+        <div class="social-links">
+
+            <!-- Add your actual links here -->
+
+            <a href="https://github.com/afsar-0007" class="social">
+                GitHub
+            </a>
+
+            <a href="https://linkedin.com/in/afsar-sohail" class="social">
+                LinkedIn
+            </a>
+
+            <a href="https://hashnode.com/@afsarsohail" class="social">
+                Hashnode
+            </a>
+
+            <a href="https://afsarsohail.github.io" class="social">
+                Portfolio
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 <strong>Afsar Sohail</strong> · DevOps Engineer
+    </p>
+
+</footer>
+
+
 </body>
 </html>
