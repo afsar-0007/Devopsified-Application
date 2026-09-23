@@ -174,6 +174,8 @@ Kubernetes
 Helm
       ↓
 AWS EKS
+and 
+Argo-cd
 ```
 
 
