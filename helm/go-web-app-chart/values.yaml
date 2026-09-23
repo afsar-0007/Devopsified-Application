@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: afsarsohail/go-web-app
   pullPolicy: IfNotPresent
-  tag: "35634347815"
+  tag: "35895782756"
 
 ingress:
   enabled: true
