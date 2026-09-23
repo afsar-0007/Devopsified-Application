@@ -179,5 +179,3 @@ Argo-cd
 
 and github action which is an continious integrationn tool 
 
-<img width="1835" height="937" alt="Screenshot 2026-09-21 160403" src="https://github.com/user-attachments/assets/3df7ec13-6240-4530-90f2-e7b6b8f9a466" />
-
