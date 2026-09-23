@@ -160,10 +160,6 @@ Then deploy the application using Helm:
 helm install go-web-app ./helm/go-web-app
 ```
 
-## 📸 Application Preview
-
-![Go Web Application](static/images/golang-website.png)
-
 ## 🎯 Learning Objectives
 
 This project was created to understand the complete journey of deploying a Go application using modern DevOps technologies:
